@@ -38,9 +38,9 @@ url('https://fonts.googleapis.com/css?family=Lato:100,400,900');
 }
 
 .TBC {
-    font-size: 3rem;
-    font-weight: 100;
-    color: red;}
+    font-size: 2rem;
+    font-weight: 600;
+    color:black;}
     
 /*13. add a text shadow with the following specs:
 horizontal offset: 2px
