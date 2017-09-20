@@ -1,0 +1,23 @@
+.photo{
+    
+    background-image: url('Lemonprofile.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    background-position: 5% 0%;
+
+}
+
+.text{
+
+    color: black
+}
+
+.line{
+
+    width: 65%;
+    border: 3px solid lightgreen;
+    margin-left: 0;
+
+}
