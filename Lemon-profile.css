@@ -1,6 +1,6 @@
 .photo{
     
-    background-image: url('Lemonprofile.jpg');
+    background-image: url('lemonprofile1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
@@ -11,7 +11,7 @@
 
 .text{
 
-    color: white
+    color: darkgreen
 }
 
 .line{

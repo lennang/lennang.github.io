@@ -1,41 +1,58 @@
-var student_1 = "Lenna";
-var student_2 = "Andrew";
+var noLikes = 0;
 
-var welcome_msg = "Hey, Lets be friends.." + student_1 + "," + student_2;
-
-function greet(name) {
-    console.log ("Hello " + name);
+function like() {
+    noLikes++;    
 }
 
-greet ("Lenna");
-
-greet ("clarrisa")
-
-greet ("mum")
-
-function welcome(firstName, lastName) {
-    var msg = "Hello " + firstName + " " + lastName;
-    return msg;
-     }
+var likeButton = "Like" + "(" + noLikes + ")";
+console.log(likeButton);
 
 
-     console.log ( welcome ("Loo", "Lenna") );
-
-
-     var days = 5;
-     var fullTime = false;
-     // 1.1  Write an if statement to determine if lesson is full time.
-     //      Part time lesson consists of 8 days.
-     // 1.2  To create an if statement, write:
-     //      if(days < 8){ ...code to fill...  }
-     // 1.3  To changee fullTime to true, in the if statement within the { curly braces } write:
-     //      fullTime = true;
-     // 1.4  Print the value of fullTime in the console by writing after 1.2:
-     //      console.log(fullTime);
-     // WRITE THE CODE FOR STEP 1 BELOW THIS LINE:
-
-     if (days >8 ) {fullTime = true;
-         
-     }
-
-     console.log (fullTime);
+$(function () {
+    
+        // on submitting the form
+        $('form').submit(function (event) {
+            // prevent the default action of reloading the page
+            event.preventDefault();
+    
+            var sendData = {};
+            $(event.target.nodeName + ' :input').each(function(){
+                sendData[this.name] = $(this).val();
+            });
+    
+            var posting = $.ajax({
+                type: 'POST',
+                url: $(event.target.nodeName).prop('action'),
+                data: sendData
+            });
+    
+            posting.done(function (response) {
+                console.log(response);
+                $('#alert-id').prop('hidden', false);
+                $('form :input').each(function(){
+                    $(this).val('');
+                })
+            });
+            posting.fail(function (response) {
+                console.log(response);
+            });
+        });
+    
+    // RESPONSE ALERT WINDOW-------------------------------------------------------------------------------
+    /* include the following HTML to use:
+    <div class="form-group">
+        <button type="submit" class="btn btn-default my-btn form-control" id="submit-id">submit</button>                   
+        <div class="alert alert-danger alert-dismissible fade in" hidden id="alert-id">
+            <button type="button" class="close" id="close-id"><span>&times;</span></button>
+            Thank you! We'll get in touch.
+        </div>
+    </div>
+    */
+    
+        // on clicking the X button
+        $('#close-id').click(function(){
+            // hide the alert panel by adding the hidden property
+            $('#alert-id').prop('hidden', true);
+        });
+    
+    });
