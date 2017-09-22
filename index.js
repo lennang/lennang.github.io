@@ -4,6 +4,8 @@ function like() {
     noLikes++;    
 }
 
+
+
 var likeButton = "Like" + "(" + noLikes + ")";
 console.log(likeButton);
 
